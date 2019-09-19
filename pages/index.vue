@@ -1,6 +1,8 @@
 <template>
   <div class="grid-container">
-    <Logo />
+    <div class="logo">
+      <Logo />
+    </div>
     <Navbar />
     <div class="content" />
   </div>

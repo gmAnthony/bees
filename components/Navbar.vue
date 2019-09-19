@@ -1,7 +1,8 @@
 <template>
   <div class="nav" role="navigation">
     <b-nav vertical class="w-25">
-      <b-nav-item v-b-toggle.collapse-2 active class="m-1">
+      <i @click="expanded=key">&nbsp;</i>
+      <b-nav-item v-b-toggle="'collapse-2' + key" active class="m-1" visible="key === expanded">
         Mass
       </b-nav-item>
       <b-collapse id="collapse-2">
@@ -56,7 +57,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data () {
+    return {
+      expanded: 0
+    }
+  }
+}
 </script>
 
 <style />
