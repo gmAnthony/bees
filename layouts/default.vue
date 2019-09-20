@@ -5,6 +5,11 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import VueUnits from 'vue-units'
+
+Vue.use(VueUnits)
+
 export default {
   link: [
     { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap' }

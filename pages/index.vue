@@ -5,9 +5,11 @@
     </div>
     <Navbar />
     <div class="content">
+      <p>Enter a weight in</p>
+      <b-form-select v-model="selected" :options="options" />
       <b-form-input v-model="text" type="number" placeholder="Enter a value." />
       <div class="mt-2">
-        Value: {{ text | unit('lb', 'tons', true) }}
+        Bees: {{ unitConvert }}
       </div>
     </div>
   </div>
@@ -17,6 +19,7 @@
 import Navbar from '../components/Navbar'
 import Logo from '../components/Logo'
 
+const convert = require('convert-units')
 
 export default {
   components: {
@@ -25,13 +28,18 @@ export default {
   },
   data () {
     return {
-      text: ''
+      text: '',
+      selected: 'lb',
+      options: [
+        { value: 'lb', text: 'Pounds' },
+        { value: 't', text: 'Tons' }
+      ]
     }
   },
-  head: {
-    script: [
-      { type: 'text/javascript', src: 'https://unpkg.com/vue-units@^1.0/vue-units.js', async: true, body: true }
-    ]
+  computed: {
+    unitConvert () {
+      return convert(this.text).from(this.selected).to('bees').toFixed(0)
+    }
   }
 }
 </script>
