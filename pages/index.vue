@@ -5,12 +5,7 @@
     </div>
     <Navbar />
     <div class="content">
-      <p>Enter a weight in</p>
-      <b-form-select v-model="selected" :options="options" />
-      <b-form-input v-model="text" type="number" placeholder="Enter a value." />
-      <div class="mt-2">
-        Bees: {{ unitConvert }}
-      </div>
+      <Convert />
     </div>
   </div>
 </template>
@@ -18,21 +13,29 @@
 <script>
 import Navbar from '../components/Navbar'
 import Logo from '../components/Logo'
+import Convert from '../components/Convert'
 
 const convert = require('convert-units')
 
 export default {
   components: {
     Navbar,
-    Logo
+    Logo,
+    Convert
   },
   data () {
     return {
-      text: '',
+      unit: 'Bees',
       selected: 'lb',
       options: [
         { value: 'lb', text: 'Pounds' },
-        { value: 't', text: 'Tons' }
+        { value: 't', text: 'Tons' },
+        { value: 'oz', text: 'Ounces' },
+        { value: 'mcg', text: 'Micrograms' },
+        { value: 'mg', text: 'Milligrams' },
+        { value: 'g', text: 'Grams' },
+        { value: 'kg', text: 'Kilograms' },
+        { value: 'mt', text: 'Metric Tons' }
       ]
     }
   },
@@ -44,4 +47,23 @@ export default {
 }
 </script>
 
-<style />
+<style>
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.unitEnter {
+  width: 50%;
+}
+
+.unitSelect {
+  width: 20%;
+}
+
+.enterUnit {
+  display: flex;
+  margin-top: 20%;
+}
+</style>

@@ -5,11 +5,6 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import VueUnits from 'vue-units'
-
-Vue.use(VueUnits)
-
 export default {
   link: [
     { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap' }
@@ -58,5 +53,7 @@ body {
 .content {
   grid-area: c;
   padding: 1.2em;
+  display: flex;
+  flex-direction: column;
 }
 </style>
