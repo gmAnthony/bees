@@ -3,13 +3,13 @@
     <div class="enterUnit">
       <b-form-input v-model="text" type="number" placeholder="Enter a value." class="unitEnter" />
       <b-form-select v-if="mass" v-model="selected" :options="massOptions" class="unitSelect" />
-      <b-form-select v-model="selected" :options="lengthOptions" class="unitSelect" />
-      <b-form-select v-model="selected" :options="volumeOptions" class="unitSelect" />
-      <b-form-select v-model="selected" :options="timeOptions" class="unitSelect" />
-      <b-form-select v-model="selected" :options="speedOptions" class="unitSelect" />
+      <b-form-select v-if="length" v-model="selected" :options="lengthOptions" class="unitSelect" />
+      <b-form-select v-if="volume" v-model="selected" :options="volumeOptions" class="unitSelect" />
+      <b-form-select v-if="time" v-model="selected" :options="timeOptions" class="unitSelect" />
+      <b-form-select v-if="speed" v-model="selected" :options="speedOptions" class="unitSelect" />
     </div>
     <div class="mt-2">
-      {{ unit }}: {{ unitConvert }}
+      {{ convUnit }}: {{ unitConvert }}
     </div>
   </div>
 </template>
@@ -20,8 +20,8 @@ export default {
   data () {
     return {
       text: '',
-      selected: 'lb',
-      unit: 'bees',
+      selected: 'n',
+      convUnit: 'bees',
       massOptions: [
         { value: 'lb', text: 'Pounds' },
         { value: 't', text: 'Tons' },
@@ -81,11 +81,23 @@ export default {
     unitConvert () {
       return convert(this.text)
         .from(this.selected)
-        .to(this.unit)
+        .to(this.convUnit)
         .toFixed(0)
     },
     mass () {
       return this.$route.path === '/mass'
+    },
+    length () {
+      return this.$route.path === '/length'
+    },
+    volume () {
+      return this.$route.path === '/volume'
+    },
+    time () {
+      return this.$route.path === '/time'
+    },
+    speed () {
+      return this.$route.path === '/speed'
     }
   }
 }
@@ -99,7 +111,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .unitEnter {
-  width: 50%;
+  width: 20%;
 }
 
 .unitSelect {
@@ -109,5 +121,6 @@ input[type="number"]::-webkit-outer-spin-button {
 .enterUnit {
   display: flex;
   margin-top: 20%;
+  align-items: center;
 }
 </style>

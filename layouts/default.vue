@@ -18,6 +18,7 @@ export default {
   min-width: 100%;
   margin: 0;
   padding: 0;
+  align-items: center;
 }
 
 body {
