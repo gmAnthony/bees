@@ -7,10 +7,8 @@
     </div>
     <div class="resultUnit">
       <h3> Select a unit to convert to </h3>
-      <div class="mt-2">
-        <b-form-select v-model="convUnit" :options="convMassOptions" class="unitSelect" />
-        {{ unitConvert }}
-      </div>
+      <h4>{{ unitConvert }}</h4>
+      <b-form-select v-model="convUnit" :options="convMassOptions" class="unitSelect" />
     </div>
   </div>
 </template>
@@ -62,13 +60,18 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 20%;
 }
 
+.mt-2 {
+  display: flex;
+  flex-direction:row;
+}
+
 .unitSelect {
   width: 20%;
 }
 
-.enterUnit {
+.enterUnit, .resultUnit {
   display: flex;
-  margin-top: 20%;
+  margin-top: 5%;
   align-items: center;
   flex-direction:column;
 }
