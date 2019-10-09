@@ -26,7 +26,7 @@ export default {
   data () {
     return {
       unit: 'Bees',
-      selected: 'lb',
+      selected: 'n_length',
       options: [
         { value: 'lb', text: 'Pounds' },
         { value: 't', text: 'Tons' },

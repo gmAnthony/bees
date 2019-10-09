@@ -20,8 +20,8 @@ export default {
   data () {
     return {
       text: '',
-      selected: 'n',
-      convUnit: 'bees',
+      selected: 'bees',
+      convUnit: 'n',
       massOptions: [
         { value: 'lb', text: 'Pounds' },
         { value: 't', text: 'Tons' },

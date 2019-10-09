@@ -5,7 +5,7 @@
     </div>
     <Navbar />
     <div class="content">
-      <Convert />
+      <MassConvert />
     </div>
   </div>
 </template>
@@ -13,7 +13,7 @@
 <script>
 import Navbar from '../components/Navbar'
 import Logo from '../components/Logo'
-import Convert from '../components/Convert'
+import MassConvert from '../components/MassConvert'
 
 const convert = require('convert-units')
 
@@ -21,7 +21,7 @@ export default {
   components: {
     Navbar,
     Logo,
-    Convert
+    MassConvert
   },
   data () {
     return {
