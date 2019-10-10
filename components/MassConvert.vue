@@ -1,14 +1,28 @@
 <template>
-  <div>
-    <div class="enterUnit">
-      <h3> Enter a value to convert </h3>
-      <b-form-input v-model="text" type="number" placeholder="Enter a value." class="unitEnter" />
-      <b-form-select v-model="selected" :options="massOptions" class="unitSelect" />
+  <div class="conv-wrapper">
+    <div class="convert">
+      <div class="enterUnit">
+        <h3> Enter a value to convert </h3>
+        <b-form-input v-model="text" type="number" placeholder="Enter a value" class="unitEnter" />
+        <b-form-select v-model="selected" :options="massOptions" class="unitSelect" />
+      </div>
+      <div class="resultUnit">
+        <h3> Select a unit to convert to </h3>
+        <h4>{{ unitConvert }}</h4>
+        <b-form-select v-model="convUnit" :options="convMassOptions" class="unitSelect" />
+      </div>
     </div>
-    <div class="resultUnit">
-      <h3> Select a unit to convert to </h3>
-      <h4>{{ unitConvert }}</h4>
-      <b-form-select v-model="convUnit" :options="convMassOptions" class="unitSelect" />
+    <div v-if="convUnit === 'bees'" class="info">
+      <b-button v-b-toggle.collapse-1 variant="primary">
+        Facts & Notes
+      </b-button>
+      <b-collapse id="collapse-1" class="mt-4">
+        <b-card>
+          <p class="card-text">
+            These are some facts about bees
+          </p>
+        </b-card>
+      </b-collapse>
     </div>
   </div>
 </template>
@@ -43,7 +57,7 @@ export default {
       return convert(this.text)
         .from(this.selected)
         .to(this.convUnit)
-        .toFixed(0)
+        .toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     }
   }
 }
@@ -56,8 +70,15 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
+.convert {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+}
+
 .unitEnter {
-  width: 20%;
+  width: 100%;
 }
 
 .mt-2 {
@@ -66,7 +87,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .unitSelect {
-  width: 20%;
+  width: 100%;
 }
 
 .enterUnit, .resultUnit {
@@ -74,5 +95,7 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-top: 5%;
   align-items: center;
   flex-direction:column;
+  padding-left: 10em;
+  padding-right: 10em;
 }
 </style>
