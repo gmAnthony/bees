@@ -13,25 +13,66 @@
       </div>
     </div>
     <div v-if="convUnit === 'bees'" class="info">
-      <b-button v-b-toggle.collapse-1 variant="primary">
-        Facts & Notes
-      </b-button>
-      <b-collapse id="collapse-1" class="mt-4">
-        <b-card>
-          <p class="card-text">
-            These are some facts about bees
-          </p>
+      <div class="facts">
+        <b-card border-variant="primary" header="Facts & Notes" header-bg-variant="primary" header-text-variant="white" align="center">
+          <b-card-text> These are some facts about bees. </b-card-text>
         </b-card>
-      </b-collapse>
+        <b-card border-variant="primary" header="Confidence" header-bg-variant="primary" header-text-variant="white" align="center">
+          <vue-plotly :data="data" :layout="layout" :options="options" class="plot" />
+        </b-card>
+
+        <b-button v-b-toggle.collapse-1 variant="primary">
+          Facts & Notes
+        </b-button>
+        <b-collapse id="collapse-1" class="mt-4">
+          <b-card>
+            <p class="card-text">
+              These are some facts about bees
+            </p>
+          </b-card>
+        </b-collapse>
+      </div>
+      <div class="confidence">
+        <b-button v-b-toggle.collapse-2 variant="primary">
+          Confidence
+        </b-button>
+        <b-collapse id="collapse-2" class="mt-5">
+          <b-card>
+            <vue-plotly :data="data" :layout="layout" :options="options" class="plot" />
+          </b-card>
+        </b-collapse>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import VuePlotly from '@statnett/vue-plotly'
+
+const trace1 = {
+  type: 'scatter',
+  x: [1, 2, 3, 4],
+  y: [10, 15, 13, 17],
+  mode: 'lines',
+  name: 'Red',
+  line: {
+    color: 'rgb(219, 64, 82)',
+    width: 3
+  }
+}
 const convert = require('convert-units')
 export default {
+  components: {
+    VuePlotly
+  },
   data () {
     return {
+      data: [trace1],
+      layout: {},
+      options: {
+        responsive: true,
+        autosizable: true
+      },
       text: '',
       selected: 'lb',
       convUnit: 'bees',
@@ -86,8 +127,21 @@ input[type="number"]::-webkit-outer-spin-button {
   flex-direction:row;
 }
 
+.mt-5 {
+  height: 10em;
+  max-width: 100%;
+}
+
+.svg-container {
+  width: 100%;
+}
+
 .unitSelect {
   width: 100%;
+}
+
+.info, .confidence {
+  padding: 1.2em;
 }
 
 .enterUnit, .resultUnit {

@@ -294,7 +294,7 @@
   </svg>
 </template>
 
-<style>
+<style scoped>
 svg {
   height: 120px;
 }
