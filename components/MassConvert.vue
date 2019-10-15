@@ -1,78 +1,48 @@
 <template>
-  <div class="conv-wrapper">
-    <div class="convert">
-      <div class="enterUnit">
-        <h3> Enter a value to convert </h3>
-        <b-form-input v-model="text" type="number" placeholder="Enter a value" class="unitEnter" />
-        <b-form-select v-model="selected" :options="massOptions" class="unitSelect" />
-      </div>
-      <div class="resultUnit">
-        <h3> Select a unit to convert to </h3>
-        <h4>{{ unitConvert }}</h4>
-        <b-form-select v-model="convUnit" :options="convMassOptions" class="unitSelect" />
-      </div>
+  <div class="sub-grid">
+    <div class="enter">
+      <h3> Enter a value to convert </h3>
+      <b-form-input
+        v-model="text"
+        type="number"
+        placeholder="Enter a value"
+        class="unitEnter"
+        min="0"
+        max="10"
+        step="3"
+      />
+      <b-form-select v-model="selected" :options="massOptions" class="unitSelect" />
     </div>
-    <div v-if="convUnit === 'bees'" class="info">
-      <div class="facts">
-        <b-card border-variant="primary" header="Facts & Notes" header-bg-variant="primary" header-text-variant="white" align="center">
+    <div class="result">
+      <h3> Select a unit to convert to </h3>
+      <h5>{{ unitConvert }}</h5>
+      <b-form-select v-model="convUnit" :options="convMassOptions" class="unitSelect" />
+    </div>
+    <div class="fact">
+      <div v-if="convUnit === 'bees'" class="info">
+        <b-card border-variant="light" header="Facts & Notes" header-bg-variant="light" header-text-variant="black" align="center">
           <b-card-text> These are some facts about bees. </b-card-text>
         </b-card>
-        <b-card border-variant="primary" header="Confidence" header-bg-variant="primary" header-text-variant="white" align="center">
-          <vue-plotly :data="data" :layout="layout" :options="options" class="plot" />
-        </b-card>
-
-        <b-button v-b-toggle.collapse-1 variant="primary">
-          Facts & Notes
-        </b-button>
-        <b-collapse id="collapse-1" class="mt-4">
-          <b-card>
-            <p class="card-text">
-              These are some facts about bees
-            </p>
-          </b-card>
-        </b-collapse>
       </div>
-      <div class="confidence">
-        <b-button v-b-toggle.collapse-2 variant="primary">
-          Confidence
-        </b-button>
-        <b-collapse id="collapse-2" class="mt-5">
-          <b-card>
-            <vue-plotly :data="data" :layout="layout" :options="options" class="plot" />
-          </b-card>
-        </b-collapse>
+      <div v-if="convUnit === 'qtrPounders'" class="info">
+        <b-card border-variant="light" header="Facts & Notes" header-bg-variant="light" header-text-variant="black" align="center">
+          <b-card-text> These are some facts about McDonald's Quarter Pounders. </b-card-text>
+        </b-card>
+      </div>
+      <div v-if="convUnit === 'lebrons'" class="info">
+        <b-card border-variant="light" header="Facts & Notes" header-bg-variant="light" header-text-variant="black" align="center">
+          <b-card-text> These are some facts about Lebron James. </b-card-text>
+        </b-card>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import VuePlotly from '@statnett/vue-plotly'
-
-const trace1 = {
-  type: 'scatter',
-  x: [1, 2, 3, 4],
-  y: [10, 15, 13, 17],
-  mode: 'lines',
-  name: 'Red',
-  line: {
-    color: 'rgb(219, 64, 82)',
-    width: 3
-  }
-}
 const convert = require('convert-units')
 export default {
-  components: {
-    VuePlotly
-  },
   data () {
     return {
-      data: [trace1],
-      layout: {},
-      options: {
-        responsive: true,
-        autosizable: true
-      },
       text: '',
       selected: 'lb',
       convUnit: 'bees',
@@ -95,10 +65,25 @@ export default {
   },
   computed: {
     unitConvert () {
+      const conv = convert(this.text)
+        .from(this.selected)
+        .to(this.convUnit)
+
+      console.log(parseInt(conv))
+
+      if (parseInt(conv).toString().length > 12 && parseInt(conv) < 999999999999999999) {
+        return Number(conv).toExponential(12)
+      } else if (parseInt(conv) > 999999999999999999) {
+        return 'That number is super large you silly goose.'
+      } else {
+        return parseInt(conv).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      }
+      /*
       return convert(this.text)
         .from(this.selected)
         .to(this.convUnit)
         .toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      */
     }
   }
 }
@@ -111,45 +96,54 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-.convert {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  padding: 5px;
+.sub-grid {
+  display: grid;
+  grid-template-areas:
+  "e r"
+  "f f";
+  grid-template-rows: .2fr .7fr;
+  grid-template-columns: .5fr .5fr;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  height: 100vh;
+  margin: 0;
+}
+
+.enter {
+  grid-area: e;
 }
 
 .unitEnter {
-  width: 100%;
-}
-
-.mt-2 {
-  display: flex;
-  flex-direction:row;
-}
-
-.mt-5 {
-  height: 10em;
-  max-width: 100%;
-}
-
-.svg-container {
-  width: 100%;
+  width: 75%;
+  min-width: 50%;
 }
 
 .unitSelect {
-  width: 100%;
+  width: 75%;
+  min-width: 50%;
 }
 
-.info, .confidence {
-  padding: 1.2em;
+.result {
+  grid-area: r;
 }
 
-.enterUnit, .resultUnit {
-  display: flex;
-  margin-top: 5%;
-  align-items: center;
-  flex-direction:column;
-  padding-left: 10em;
-  padding-right: 10em;
+.fact {
+  grid-area: f;
 }
+
+@media (max-width: 768px) {
+  h4 {
+    font-size: 16px;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+
+  input, select {
+    font-size: 12px;
+  }
+
+}
+
 </style>

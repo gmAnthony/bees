@@ -30,11 +30,10 @@ body {
 .grid-container {
   display: grid;
   grid-template-areas:
-  "l c"
-  "n c"
-  "n c";
-  grid-template-rows: 100px 1fr;
-  grid-template-columns: 150px 1fr;
+  "l n"
+  "c c";
+  grid-template-rows: .5fr 1fr;
+  grid-template-columns: 80px 1fr;
   grid-row-gap: 10px;
   grid-column-gap: 10px;
   height: 100vh;

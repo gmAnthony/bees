@@ -1,9 +1,9 @@
 <template>
   <div class="nav" role="navigation">
-    <b-nav vertical class="w-25">
-      <b-nav-item active class="m-1">
+    <b-nav class="w-25">
+      <b-nav-item>
         <nuxt-link to="/mass">
-          Weight
+          Mass
         </nuxt-link>
       </b-nav-item>
       <b-nav-item>
@@ -21,11 +21,6 @@
           Time
         </nuxt-link>
       </b-nav-item>
-      <b-nav-item>
-        <nuxt-link to="/speed">
-          Speed
-        </nuxt-link>
-      </b-nav-item>
     </b-nav>
   </div>
 </template>
@@ -35,4 +30,8 @@ export default {
 }
 </script>
 
-<style />
+<style>
+.w-25 {
+  min-width: 100%;
+}
+</style>

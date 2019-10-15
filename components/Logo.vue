@@ -296,6 +296,6 @@
 
 <style scoped>
 svg {
-  height: 120px;
+  height: 100px;
 }
 </style>

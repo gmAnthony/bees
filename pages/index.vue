@@ -5,7 +5,9 @@
     </div>
     <Navbar />
     <div class="content">
-      <Convert />
+      <div class="sub-grid">
+        <Convert />
+      </div>
     </div>
   </div>
 </template>
@@ -47,23 +49,4 @@ export default {
 }
 </script>
 
-<style>
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.unitEnter {
-  width: 50%;
-}
-
-.unitSelect {
-  width: 20%;
-}
-
-.enterUnit {
-  display: flex;
-  margin-top: 20%;
-}
-</style>
+<style />
