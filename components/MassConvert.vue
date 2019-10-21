@@ -1,22 +1,24 @@
 <template>
-  <div class="sub-grid">
-    <div class="enter">
-      <h3> Enter a value to convert </h3>
-      <b-form-input
-        v-model="text"
-        type="number"
-        placeholder="Enter a value"
-        class="unitEnter"
-        min="0"
-        max="10"
-        step="3"
-      />
-      <b-form-select v-model="selected" :options="massOptions" class="unitSelect" />
-    </div>
-    <div class="result">
-      <h3> Select a unit to convert to </h3>
-      <h5>{{ unitConvert }}</h5>
-      <b-form-select v-model="convUnit" :options="convMassOptions" class="unitSelect" />
+  <div class="convert">
+    <div class="enter-result">
+      <div class="enter">
+        <h3> From: </h3>
+        <b-form-input
+          v-model="text"
+          type="number"
+          placeholder="Enter a value"
+          class="unitEnter"
+          min="0"
+          max="10"
+          step="3"
+        />
+        <b-form-select v-model="selected" :options="massOptions" class="unitSelect" />
+      </div>
+      <div class="result">
+        <h3> To: </h3>
+        <h4>{{ unitConvert }}</h4>
+        <b-form-select v-model="convUnit" :options="convMassOptions" class="unitSelect" />
+      </div>
     </div>
     <div class="fact">
       <div v-if="convUnit === 'bees'" class="info">
@@ -96,6 +98,72 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
+::-webkit-input-placeholder {
+  color: #fff;
+}
+
+::-moz-placeholder {
+  color: #fff;
+}
+
+::-moz-placeholder {
+  color: #fff;
+}
+
+:-ms-input-placeholder {
+  color: #fff;
+}
+
+.convert {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.enter-result {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+.enter {
+  display: flex;
+  flex-direction: row;
+  grid-area: e;
+  padding: 2em;
+  margin-left: auto;
+}
+
+.result {
+  display: flex;
+  flex-direction: row;
+  grid-area: r;
+  padding: 1em;
+  margin-right: auto;
+}
+
+.fact {
+  grid-area: f;
+}
+
+.unitEnter {
+  width: 100%;
+}
+
+.unitSelect {
+  width: 100%;
+}
+
+.enter input {
+  border: none;
+  border-bottom: 2px outset black;
+  outline: none;
+  background: transparent;
+  border-radius: 1px;
+}
+
+/*
 .sub-grid {
   display: grid;
   grid-template-areas:
@@ -130,20 +198,5 @@ input[type="number"]::-webkit-outer-spin-button {
 .fact {
   grid-area: f;
 }
-
-@media (max-width: 768px) {
-  h4 {
-    font-size: 16px;
-  }
-
-  h3 {
-    font-size: 14px;
-  }
-
-  input, select {
-    font-size: 12px;
-  }
-
-}
-
+*/
 </style>

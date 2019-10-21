@@ -27,6 +27,11 @@
         <b-card-text> These are some facts about golf balls. </b-card-text>
       </b-card>
     </div>
+    <div v-if="convUnit === 'maru'" class="info">
+      <b-card border-variant="light" header="Facts & Notes" header-bg-variant="light" header-text-variant="black" align="center">
+        <b-card-text> These are some facts about Maru. </b-card-text>
+      </b-card>
+    </div>
   </div>
 </template>
 
@@ -57,7 +62,8 @@ export default {
       convOptions: [
         { value: 'mouth', text: 'Mouthfulls' },
         { value: 'egg', text: 'Large Chicken Eggs' },
-        { value: 'golfball', text: 'Golf balls' }
+        { value: 'golfball', text: 'Golf balls' },
+        { value: 'maru', text: 'Marus' }
       ]
     }
   },
