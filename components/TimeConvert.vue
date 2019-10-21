@@ -32,6 +32,11 @@
         <b-card-text> These are some facts about Anthony Scaramucci. </b-card-text>
       </b-card>
     </div>
+    <div v-if="convUnit === 'sols'" class="info">
+      <b-card border-variant="light" header="Facts & Notes" header-bg-variant="light" header-text-variant="black" align="center">
+        <b-card-text> These are some facts about Martian days. </b-card-text>
+      </b-card>
+    </div>
   </div>
 </template>
 
@@ -59,7 +64,8 @@ export default {
         { value: 'mayfly', text: 'Lifespans of a Mayfly' },
         { value: 'moonCycle', text: 'Full moon cycles' },
         { value: 'flaps', text: "Flaps of a hummingbird's wings" },
-        { value: 'mooch', text: 'Mooches' }
+        { value: 'mooch', text: 'Mooches' },
+        { value: 'sols', text: 'Sols' }
       ]
     }
   },
