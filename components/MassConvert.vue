@@ -1,6 +1,24 @@
 <template>
   <div class="convert">
     <div class="enter-result">
+      <div class="natural">
+        <span> I want to know how many <span>
+          <b-form-select v-model="convUnit" :options="convMassOptions" class="unitSelect" />
+          <span> are in </span>
+          <b-form-input
+            v-model="text"
+            type="number"
+            placeholder="Enter a value"
+            class="unitEnter"
+            min="0"
+            max="10"
+            step="3"
+          />
+          <b-form-select v-model="selected" :options="massOptions" class="unitSelect" />
+        <span>.<span>
+        <span> There are {{ unitConvert }} {{ convUnit }} in {{ text }} {{ selected }}. </span>
+      </div>
+
       <div class="enter">
         <h3> From: </h3>
         <b-form-input
@@ -12,7 +30,7 @@
           max="10"
           step="3"
         />
-        <b-form-select v-model="selected" :options="massOptions" class="unitSelect" />
+        <b-form-select v-model="selected" :options="massOptions" no-caret="true" class="unitSelect" />
       </div>
       <div class="result">
         <h3> To: </h3>
@@ -114,22 +132,35 @@ input[type="number"]::-webkit-outer-spin-button {
   color: #fff;
 }
 
+.natural span {
+  display: inline;
+  font-size: 
+}
+
+.natural {
+  display: inline;
+}
+
 .convert {
   width: 100%;
+  /*
   display: flex;
   flex-direction: column;
+  */
 }
 
 .enter-result {
   display: flex;
   flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
+  margin-left: 20%;
+  margin-right: 20%;
+  align-items: left;
 }
 .enter {
+  /*
   display: flex;
   flex-direction: row;
+  */
   grid-area: e;
   padding: 2em;
   margin-left: auto;
@@ -148,16 +179,28 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .unitEnter {
-  width: 100%;
+  display: inline;
+  width: 20%;
+  border: none;
+  border-bottom: 2px solid black;
+  outline: none;
+  background: transparent;
+  border-radius: 1px;
 }
 
 .unitSelect {
-  width: 100%;
+  width: 20%;
+  overflow: 'scrollParent';
+  border: none;
+  border-bottom: 2px solid black;
+  outline: none;
+  background: transparent;
+  border-radius: 1px;
 }
 
 .enter input {
   border: none;
-  border-bottom: 2px outset black;
+  border-bottom: 2px solid black;
   outline: none;
   background: transparent;
   border-radius: 1px;

@@ -7,8 +7,8 @@
         </nuxt-link>
       </b-nav-item>
       <b-nav-item>
-        <nuxt-link to="/length">
-          Length
+        <nuxt-link to="/distance">
+          Distance
         </nuxt-link>
       </b-nav-item>
       <b-nav-item>
