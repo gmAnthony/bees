@@ -1,26 +1,10 @@
 <template>
   <div class="convert">
     <div class="enter-result">
-      <div class="natural">
-        <span> I want to know how many <span>
-          <b-form-select v-model="convUnit" :options="convMassOptions" class="unitSelect" />
-          <span> are in </span>
-          <b-form-input
-            v-model="text"
-            type="number"
-            placeholder="Enter a value"
-            class="unitEnter"
-            min="0"
-            max="10"
-            step="3"
-          />
-          <b-form-select v-model="selected" :options="massOptions" class="unitSelect" />
-        <span>.<span>
-        <span> There are {{ unitConvert }} {{ convUnit }} in {{ text }} {{ selected }}. </span>
-      </div>
-
       <div class="enter">
-        <h3> From: </h3>
+        <span> I want to know how many </span>
+        <b-form-select v-model="convUnit" :options="convMassOptions" class="unitSelect" />
+        <span> are in </span>
         <b-form-input
           v-model="text"
           type="number"
@@ -30,13 +14,10 @@
           max="10"
           step="3"
         />
-        <b-form-select v-model="selected" :options="massOptions" no-caret="true" class="unitSelect" />
+        <b-form-select v-model="selected" :options="massOptions" class="unitSelect" />
+        <span>.</span>
       </div>
-      <div class="result">
-        <h3> To: </h3>
-        <h4>{{ unitConvert }}</h4>
-        <b-form-select v-model="convUnit" :options="convMassOptions" class="unitSelect" />
-      </div>
+        <span class="result"> There are {{ unitConvert }} {{ convUnit }} in {{ text }} {{ selected }}. </span>
     </div>
     <div class="fact">
       <div v-if="convUnit === 'bees'" class="info">
@@ -132,21 +113,22 @@ input[type="number"]::-webkit-outer-spin-button {
   color: #fff;
 }
 
-.natural span {
+.enter span {
   display: inline;
-  font-size: 
+  font-size: 2em;
 }
 
-.natural {
+.enter {
   display: inline;
+}
+
+.result {
+  padding-top: 1em;
+  font-size: 2em;
 }
 
 .convert {
   width: 100%;
-  /*
-  display: flex;
-  flex-direction: column;
-  */
 }
 
 .enter-result {
@@ -157,10 +139,6 @@ input[type="number"]::-webkit-outer-spin-button {
   align-items: left;
 }
 .enter {
-  /*
-  display: flex;
-  flex-direction: row;
-  */
   grid-area: e;
   padding: 2em;
   margin-left: auto;
@@ -205,41 +183,4 @@ input[type="number"]::-webkit-outer-spin-button {
   background: transparent;
   border-radius: 1px;
 }
-
-/*
-.sub-grid {
-  display: grid;
-  grid-template-areas:
-  "e r"
-  "f f";
-  grid-template-rows: .2fr .7fr;
-  grid-template-columns: .5fr .5fr;
-  grid-row-gap: 10px;
-  grid-column-gap: 10px;
-  height: 100vh;
-  margin: 0;
-}
-
-.enter {
-  grid-area: e;
-}
-
-.unitEnter {
-  width: 75%;
-  min-width: 50%;
-}
-
-.unitSelect {
-  width: 75%;
-  min-width: 50%;
-}
-
-.result {
-  grid-area: r;
-}
-
-.fact {
-  grid-area: f;
-}
-*/
 </style>
