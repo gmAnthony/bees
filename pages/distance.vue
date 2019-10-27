@@ -5,7 +5,7 @@
     </div>
     <Navbar />
     <div class="content">
-      <LengthConvert />
+      <DistanceConvert />
     </div>
   </div>
 </template>
@@ -13,13 +13,13 @@
 <script>
 import Navbar from '../components/Navbar'
 import Logo from '../components/Logo'
-import LengthConvert from '../components/LengthConvert'
+import DistanceConvert from '../components/DistanceConvert'
 
 export default {
   components: {
     Navbar,
     Logo,
-    LengthConvert
+    DistanceConvert
   }
 }
 </script>
@@ -32,11 +32,14 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .unitEnter {
-  width: 50%;
+  width: 100%;
+  padding-left: 2em;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .unitSelect {
-  width: 20%;
+  width: 100%;
 }
 
 .enterUnit {

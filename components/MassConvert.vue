@@ -1,22 +1,23 @@
 <template>
-  <div class="sub-grid">
-    <div class="enter">
-      <h3> Enter a value to convert </h3>
-      <b-form-input
-        v-model="text"
-        type="number"
-        placeholder="Enter a value"
-        class="unitEnter"
-        min="0"
-        max="10"
-        step="3"
-      />
-      <b-form-select v-model="selected" :options="massOptions" class="unitSelect" />
-    </div>
-    <div class="result">
-      <h3> Select a unit to convert to </h3>
-      <h5>{{ unitConvert }}</h5>
-      <b-form-select v-model="convUnit" :options="convMassOptions" class="unitSelect" />
+  <div class="convert">
+    <div class="enter-result">
+      <div class="enter">
+        <span> I want to know how many </span>
+        <b-form-select v-model="convUnit" :options="convMassOptions" class="unitSelect" />
+        <span> are in </span>
+        <b-form-input
+          v-model="text"
+          type="number"
+          placeholder="Enter a value"
+          class="unitEnter"
+          min="0"
+          max="10"
+          step="3"
+        />
+        <b-form-select v-model="selected" :options="massOptions" class="unitSelect" />
+        <span>.</span>
+      </div>
+        <span class="result"> There are {{ unitConvert }} {{ convUnit }} in {{ text }} {{ selected }}. </span>
     </div>
     <div class="fact">
       <div v-if="convUnit === 'bees'" class="info">
@@ -96,54 +97,90 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-.sub-grid {
-  display: grid;
-  grid-template-areas:
-  "e r"
-  "f f";
-  grid-template-rows: .2fr .7fr;
-  grid-template-columns: .5fr .5fr;
-  grid-row-gap: 10px;
-  grid-column-gap: 10px;
-  height: 100vh;
-  margin: 0;
+::-webkit-input-placeholder {
+  color: #fff;
+}
+
+::-moz-placeholder {
+  color: #fff;
+}
+
+::-moz-placeholder {
+  color: #fff;
+}
+
+:-ms-input-placeholder {
+  color: #fff;
+}
+
+.enter span {
+  display: inline;
+  font-size: 2em;
 }
 
 .enter {
-  grid-area: e;
-}
-
-.unitEnter {
-  width: 75%;
-  min-width: 50%;
-}
-
-.unitSelect {
-  width: 75%;
-  min-width: 50%;
+  display: inline;
 }
 
 .result {
+  padding-top: 1em;
+  font-size: 2em;
+}
+
+.convert {
+  width: 100%;
+}
+
+.enter-result {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20%;
+  margin-right: 20%;
+  align-items: left;
+}
+.enter {
+  grid-area: e;
+  padding: 2em;
+  margin-left: auto;
+}
+
+.result {
+  display: flex;
+  flex-direction: row;
   grid-area: r;
+  padding: 1em;
+  margin-right: auto;
 }
 
 .fact {
   grid-area: f;
 }
 
-@media (max-width: 768px) {
-  h4 {
-    font-size: 16px;
-  }
-
-  h3 {
-    font-size: 14px;
-  }
-
-  input, select {
-    font-size: 12px;
-  }
-
+.unitEnter {
+  display: inline;
+  width: 20%;
+  border: none;
+  border-bottom: 2px solid black;
+  outline: none;
+  background: transparent;
+  border-radius: 1px;
 }
 
+.unitSelect {
+  width: 20%;
+  overflow: 'scrollParent';
+  border: none;
+  border-bottom: 2px solid black;
+  outline: none;
+  background: transparent;
+  border-radius: 1px;
+}
+
+.enter input {
+  border: none;
+  border-bottom: 2px solid black;
+  outline: none;
+  background: transparent;
+  border-radius: 1px;
+}
 </style>

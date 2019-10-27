@@ -39,7 +39,7 @@ export default {
       text: '',
       selected: 'ft',
       convUnit: 'footballField',
-      lengthOptions: [
+      distanceOptions: [
         { value: 'mm', text: 'Millimeters' },
         { value: 'cm', text: 'Centimeters' },
         { value: 'm', text: 'Meters' },
@@ -49,7 +49,7 @@ export default {
         { value: 'ft', text: 'Feet' },
         { value: 'mi', text: 'Miles' }
       ],
-      convLengthOptions: [
+      convDistanceOptions: [
         { value: 'footballField', text: 'Football fields' },
         { value: 'fruitRollup', text: 'Fruit Roll-Ups' },
         { value: 'microeverests', text: 'Microeverests' }
