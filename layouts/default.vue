@@ -16,7 +16,7 @@ export default {
 /* Font adjustments */
 body {
   font-family: 'Roboto Mono', monospace;
-  font-size: 100%;
+  font-size: 80%;
   line-height: 1.4;
 }
 

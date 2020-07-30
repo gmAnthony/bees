@@ -6,8 +6,7 @@
         <b-form-select v-model="convUnit" :options="convMassOptions" class="unitSelect" />
         <span> are in </span>
         <b-form-input
-          v-model="text"
-          oninput="javascript: if (this.value.length > this maxLength) this.value = this.value.slice(0, this.maxLength);"
+          v-model="reasonableInput"
           type="number"
           placeholder="Enter a value"
           class="unitEnter"
@@ -19,7 +18,7 @@
         <b-form-select v-model="selected" :options="massOptions" class="unitSelect" />
         <span>.</span>
       </div>
-      <span class="result"> There are {{ unitConvert }} {{ convUnit }} in {{ text }} {{ selected }}. </span>
+      <span class="result"> There are {{ unitConvert }} {{ convUnit }} in {{ reasonableInput }} {{ selected }}. </span>
     </div>
     <div class="fact">
       <div v-if="convUnit === 'bees'" class="info">
@@ -68,10 +67,24 @@ export default {
   },
   computed: {
     unitConvert () {
-      return convert(this.text)
+      const conv = convert(this.reasonableInput)
         .from(this.selected)
         .to(this.convUnit)
-        .toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      if (parseInt(conv).toString().length > 12 && parseInt(conv) < 999999999999999999) {
+        return Number(conv).toExponential(12)
+      } else if (parseInt(conv) > 999999999999999999) {
+        return BigInt(conv)
+      } else {
+        return parseInt(conv).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      }
+    },
+    reasonableInput: {
+      get () {
+        return this.num
+      },
+      set (val) {
+        this.num = val.length < 10 ? val : 'Enter a smaller number, please!'
+      }
     }
   }
 }
@@ -112,6 +125,9 @@ input[type="number"]::-webkit-outer-spin-button {
 .result {
   padding-top: 1em;
   font-size: 2em;
+  max-width: 100%;
+  word-break: break-word;
+  overflow: visible;
 }
 
 .convert {
@@ -136,7 +152,6 @@ input[type="number"]::-webkit-outer-spin-button {
   flex-direction: row;
   grid-area: r;
   padding: 1em;
-  word-break: break-word;
   margin-right: auto;
 }
 

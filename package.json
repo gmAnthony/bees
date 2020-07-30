@@ -19,9 +19,12 @@
     "convert-units": "git+https://github.com/gmAnthony/convert-units.git",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
+    "mathjs": "^7.1.0",
     "nuxt": "^2.10.1",
     "package.json": "^2.0.1",
-    "plotly.js": "^1.50.1",
+    "plotly.js": "^1.54.7",
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11",
     "vue-units": "^1.0.4",
     "vuelidate": "^0.7.4"
   },
