@@ -1,37 +1,61 @@
 <template>
   <div class="nav" role="navigation">
-    <b-nav class="w-25">
-      <b-nav-item>
-        <nuxt-link to="/mass">
-          Mass
-        </nuxt-link>
-      </b-nav-item>
-      <b-nav-item>
-        <nuxt-link to="/distance">
-          Distance
-        </nuxt-link>
-      </b-nav-item>
-      <b-nav-item>
-        <nuxt-link to="/volume">
-          Volume
-        </nuxt-link>
-      </b-nav-item>
-      <b-nav-item>
-        <nuxt-link to="/time">
-          Time
-        </nuxt-link>
-      </b-nav-item>
-    </b-nav>
+    <mdb-navbar
+      color="amber"
+      class="mt-2 lighten-4"
+      expand="xl"
+      togglerIcon=""
+      animated
+      animation="1"
+    >
+      <mdb-navbar-toggler>
+        <mdb-navbar-nav right>
+          <mdb-nav-item waves-fixed>
+            <nuxt-link to="/mass">
+              Mass
+            </nuxt-link>
+          </mdb-nav-item>
+          <mdb-nav-item waves-fixed>
+            <nuxt-link to="/distance">
+              Distance
+            </nuxt-link>
+          </mdb-nav-item>
+          <mdb-nav-item waves-fixed>
+            <nuxt-link to="/volume">
+              Volume
+            </nuxt-link>
+          </mdb-nav-item>
+          <mdb-nav-item waves-fixed>
+            <nuxt-link to="/time">
+              Time
+            </nuxt-link>
+          </mdb-nav-item>
+        </mdb-navbar-nav>
+      </mdb-navbar-toggler>
+    </mdb-navbar>
   </div>
 </template>
 
 <script>
+import { mdbNavbar, mdbNavItem, mdbNavbarNav, mdbNavbarToggler } from 'mdbvue'
+
 export default {
+  name: 'HamburgerMenuPage',
+  components: {
+    mdbNavbar,
+    mdbNavItem,
+    mdbNavbarNav,
+    mdbNavbarToggler
+  }
 }
 </script>
 
 <style>
 .w-25 {
   min-width: 100%;
+}
+
+.mt-2 {
+  z-index: 1;
 }
 </style>

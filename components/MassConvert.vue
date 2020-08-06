@@ -1,15 +1,12 @@
 <template>
   <div class="convert">
-    <div class="enter-result">
-      <div class="enter">
-        <span> I want to know how many </span>
-        <b-form-select v-model="convUnit" :options="convMassOptions" class="unitSelect" />
-        <span> are in </span>
+    <div class="enter">
+      <div class="col-1">
         <b-form-input
           v-model="text"
           oninput="javascript: if (this.value.length > this maxLength) this.value = this.value.slice(0, this.maxLength);"
           type="number"
-          placeholder="Enter a value"
+          placeholder="Enter a number to convert"
           class="unitEnter"
           maxlength="10"
           min="0"
@@ -17,14 +14,16 @@
           step="3"
         />
         <b-form-select v-model="selected" :options="massOptions" class="unitSelect" />
-        <span>.</span>
       </div>
-      <span class="result"> There are {{ unitConvert }} {{ convUnit }} in {{ text }} {{ selected }}. </span>
+      <div class="col-2">
+        <span>{{ unitConvert }}</span>
+        <b-form-select v-model="convUnit" :options="convMassOptions" class="unitSelect" />
+      </div>
     </div>
     <div class="fact">
       <div v-if="convUnit === 'bees'" class="info">
         <b-card border-variant="light" header="Facts & Notes" header-bg-variant="light" header-text-variant="black" align="center">
-          <b-card-text> These are some facts about bees. </b-card-text>
+          <b-card-text> Researchers from the University of California-Davis <a href src="https://www.ucdavis.edu/news/entomologists-engineers-work-together-weigh-bee">developed a system to weigh bees</a> as a part of their research to better understand bee health. They found that the average yellow-faced bumblebee (<em>Bombus vosnesenskii</em>) weighs 150-200 milligrams. This process was no small feat and it took a collaboration of engineers and entomologists to accurately weigh each tiny, jittery bee. </b-card-text>
         </b-card>
       </div>
       <div v-if="convUnit === 'qtrPounders'" class="info">
@@ -71,7 +70,6 @@ export default {
       return convert(this.text)
         .from(this.selected)
         .to(this.convUnit)
-        .toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     }
   }
 }
@@ -84,91 +82,84 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-::-webkit-input-placeholder {
-  color: #fff;
-}
-
-::-moz-placeholder {
-  color: #fff;
-}
-
-::-moz-placeholder {
-  color: #fff;
-}
-
-:-ms-input-placeholder {
-  color: #fff;
-}
-
-.enter span {
-  display: inline;
-  font-size: 2em;
-}
-
 .enter {
-  display: inline;
+  display: flex;
+  word-break: break-word;
+  justify-content: center;
 }
 
-.result {
-  padding-top: 1em;
-  font-size: 2em;
-}
-
-.convert {
-  width: 100%;
-}
-
-.enter-result {
+.col-1, .col-2 {
   display: flex;
   flex-direction: column;
-  margin-left: 20%;
-  margin-right: 20%;
-  align-items: left;
-}
-.enter {
-  grid-area: e;
-  padding: 2em;
-  margin-left: auto;
+  justify-content: space-between;
 }
 
-.result {
-  display: flex;
-  flex-direction: row;
-  grid-area: r;
-  padding: 1em;
-  word-break: break-word;
-  margin-right: auto;
+.col-1 {
+  padding-right: 10%;
+  min-width: 50%;
+  align-items:flex-start;
 }
 
-.fact {
-  grid-area: f;
+.col-2 {
+  padding-left: 10%;
+  min-width: 50%;
 }
 
-.unitEnter {
-  display: inline;
-  width: 20%;
-  border: none;
-  border-bottom: 2px solid black;
-  outline: none;
-  background: transparent;
-  border-radius: 1px;
+.col-1 input {
+  margin: 0;
 }
 
-.unitSelect {
-  width: 20%;
-  overflow: 'scrollParent';
-  border: none;
-  border-bottom: 2px solid black;
-  outline: none;
-  background: transparent;
-  border-radius: 1px;
+.col-2 span {
+  font-size: 1.2em;
+  padding-left: 1.2em;
 }
 
 .enter input {
-  border: none;
-  border-bottom: 2px solid black;
-  outline: none;
-  background: transparent;
-  border-radius: 1px;
+  width: 100%;
+}
+
+.unitSelect {
+  width: 100%;
+  word-break: break-word;
+  margin: 0;
+}
+
+.info {
+  padding-top: 2em;
+}
+
+.card {
+  border: 0px;
+}
+
+.card-header {
+  background-color: #ffecb3 !important
+}
+
+.card-text {
+  text-align: left;
+}
+
+@media only screen and (max-width:768px) {
+  h3 {
+    font-size: 50%;
+  }
+  .enter {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .col-1 {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 1em;
+  }
+  .col-2 {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 1em;
+  }
 }
 </style>

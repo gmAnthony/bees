@@ -22,45 +22,43 @@ body {
 
 @media only screen and (max-width:360px) {
   h3 {
-    font-size: 0.8em;
+    font-size: 50%;
   }
-
 }
 
 @media only screen and (min-width: 360px and max-width: 768px) {
   h3 {
-    font-size: 1.1em;
+    font-size: 50%;
   }
   h4 {
-    font-size: 0.9em;
+    font-size: 60%;
   }
   p {
-    font-size: 0.7em;
+    font-size: 50%;
+  }
+  .enter {
+    flex-direction: column;
   }
 }
 
 .grid-container {
   display: grid;
   grid-template-areas:
-  "l n"
-  "c c";
+  "l e n"
+  "c c c";
   grid-template-rows: 100px 1fr;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 150px 1fr 150px;
   grid-gap: 0.5rem;
   height: 100vh;
-  margin: 0;
 }
 
 .logo {
   grid-area: l;
-  margin: 0;
-  padding: 0;
 }
 
 .nav {
   grid-area: n;
-  padding: 1.2em;
-  width: 100%;
+  padding: 1em;
   display: flex;
   flex-direction: row;
 }

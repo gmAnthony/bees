@@ -23,6 +23,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    'mdbvue/lib/css/mdb.min.css'
   ],
   /*
   ** Plugins to load before mounting the App
