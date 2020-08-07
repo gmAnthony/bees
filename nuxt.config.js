@@ -13,7 +13,7 @@ module.exports = {
       { hid: 'og:image', name: 'og:image', content: 'assets/bee.png' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'assets/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
   /*
