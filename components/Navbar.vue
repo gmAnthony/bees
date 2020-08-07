@@ -51,11 +51,9 @@ export default {
 </script>
 
 <style>
-/*
-.w-25 {
-  min-width: 100%;
+.nav {
+  line-height: 2em;
 }
-*/
 .mt-2 {
   z-index: 1;
 }
