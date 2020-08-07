@@ -1,7 +1,9 @@
 <template>
   <div class="grid-container">
     <div class="logo">
-      <Logo />
+       <nuxt-link to="/">
+        <Logo />
+      </nuxt-link>
     </div>
     <Navbar />
     <div class="content">
