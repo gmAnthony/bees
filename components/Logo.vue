@@ -1,52 +1,10 @@
 <template>
   <!-- eslint-disable -->
   <svg
-    xmlns:dc="http://purl.org/dc/elements/1.1/"
-    xmlns:cc="http://creativecommons.org/ns#"
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:svg="http://www.w3.org/2000/svg"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
     id="master-artboard"
     viewBox="0 0 1400 980"
-    version="1.1"
-    x="0px"
-    y="0px"
-    style="enable-background:new 0 0 1400 980;"
-    sodipodi:docname="Unique Insect Mascot Vectors 2.svg"
-    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    <metadata id="metadata3929">
-      <rdf:RDF>
-        <cc:Work rdf:about>
-          <dc:format>image/svg+xml</dc:format>
-          <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        </cc:Work>
-      </rdf:RDF>
-    </metadata>
-    <defs id="defs3927" />
-    <sodipodi:namedview
-      pagecolor="#ffffff"
-      borderColor="#666666"
-      borderopacity="1"
-      objecttolerance="10"
-      gridtolerance="10"
-      guidetolerance="10"
-      inkscape:pageopacity="0"
-      inkscape:pageshadow="2"
-      inkscape:window-width="1920"
-      inkscape:window-height="1027"
-      id="namedview3925"
-      showgrid="false"
-      inkscape:zoom="0.8755102"
-      inkscape:cx="700"
-      inkscape:cy="535.68765"
-      inkscape:window-x="1432"
-      inkscape:window-y="-8"
-      inkscape:window-maximized="1"
-      inkscape:current-layer="g3922"
-    />
     <g transform="matrix(0.7, 0, 0, 0.7, 210.00013125756965, 0.000004593628602833633)" id="g3922">
       <g id="Object">
         <g id="g3914">
