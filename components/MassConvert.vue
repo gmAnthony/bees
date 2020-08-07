@@ -46,7 +46,7 @@ export default {
   data () {
     return {
       text: '',
-      selected: 'lb',
+      selected: 'kg',
       convUnit: 'bees',
       massOptions: [
         { value: 'lb', text: 'Pounds' },
