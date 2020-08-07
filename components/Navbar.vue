@@ -9,7 +9,7 @@
       animation="1"
     >
       <mdb-navbar-toggler>
-        <mdb-navbar-nav right>
+        <mdb-navbar-nav>
           <mdb-nav-item waves-fixed>
             <nuxt-link to="/mass">
               Mass
@@ -51,10 +51,11 @@ export default {
 </script>
 
 <style>
+/*
 .w-25 {
   min-width: 100%;
 }
-
+*/
 .mt-2 {
   z-index: 1;
 }

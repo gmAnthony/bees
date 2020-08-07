@@ -16,55 +16,40 @@ export default {
 /* Font adjustments */
 body {
   font-family: 'Roboto Mono', monospace;
-  font-size: 80%;
+  font-size: 16px;
   line-height: 1.4;
-}
-
-@media only screen and (max-width:360px) {
-  h3 {
-    font-size: 50%;
-  }
-}
-
-@media only screen and (min-width: 360px and max-width: 768px) {
-  h3 {
-    font-size: 50%;
-  }
-  h4 {
-    font-size: 60%;
-  }
-  p {
-    font-size: 50%;
-  }
-  .enter {
-    flex-direction: column;
-  }
 }
 
 .grid-container {
   display: grid;
   grid-template-areas:
-  "l e n"
-  "c c c";
+  "h h"
+  "c c";
   grid-template-rows: 100px 1fr;
-  grid-template-columns: 150px 1fr 150px;
-  grid-gap: 0.5rem;
+  grid-template-columns: 1fr 1fr;
+  /*grid-gap: 0.5rem;*/
+  grid-gap: 3rem;
   height: 100vh;
 }
 
-.logo {
-  grid-area: l;
-}
-
-.nav {
-  grid-area: n;
-  padding: 1em;
+.header {
+  grid-area: h;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  justify-items: baseline;
 }
 
-.empty {
-  grid-area: x;
+.logo {
+  width: 150px;
+}
+
+.nav-bar {
+  max-height: 150px;
+  align-self:center;
+  justify-self:right;
 }
 
 .content {
@@ -72,5 +57,31 @@ body {
   padding: 1.2em;
   margin: 0;
   padding: 0;
+}
+
+.nav {
+  flex-direction: row-reverse;
+  align-self: center;
+}
+
+@media only screen and (max-width:360px) {
+  h3 {
+    font-size: .9em;
+  }
+}
+
+@media only screen and (min-width: 360px and max-width: 768px) {
+  h3 {
+    font-size: .9em;
+  }
+  h4 {
+    font-size: .8em;
+  }
+  p {
+    font-size: .7em;
+  }
+  .enter {
+    flex-direction: column;
+  }
 }
 </style>

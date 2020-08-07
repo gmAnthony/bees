@@ -1,9 +1,13 @@
 <template>
   <div class="grid-container">
     <div class="logo">
-      <Logo />
+      <nuxt-link to="/">
+        <Logo />
+      </nuxt-link>
     </div>
-    <Navbar />
+    <div class="nav-bar">
+      <Navbar />
+    </div>
     <div class="content">
       <DistanceConvert />
     </div>

@@ -295,8 +295,8 @@
 </template>
 
 <style scoped>
-svg {
-  height: 100%;
-  width: 100%;
+.bee-svg {
+  height: 50%;
+  width: 50%;
 }
 </style>

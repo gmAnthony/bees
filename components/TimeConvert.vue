@@ -146,7 +146,8 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .card-header {
-  background-color: #ffecb3 !important
+  background-color: #fff !important;
+  font-weight: 800;
 }
 
 .card-text {

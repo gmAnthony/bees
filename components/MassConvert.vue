@@ -116,6 +116,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .enter input {
   width: 100%;
+  margin-bottom: .5em;
 }
 
 .unitSelect {
@@ -133,7 +134,8 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .card-header {
-  background-color: #ffecb3 !important
+  background-color: #fff !important;
+  font-weight: 800;
 }
 
 .card-text {

@@ -1,11 +1,13 @@
 <template>
   <div class="grid-container">
     <div class="logo">
-       <nuxt-link to="/">
+      <nuxt-link to="/">
         <Logo />
       </nuxt-link>
     </div>
-    <Navbar />
+    <div class="nav-bar">
+      <Navbar />
+    </div>
     <div class="content">
       <MassConvert />
     </div>
