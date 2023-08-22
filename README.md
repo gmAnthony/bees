@@ -1,22 +1,5 @@
-# bees
+# What the heck is Bees?
 
-> crazy unit conversions
+Deployed at [howmanybees.info](https://howmanybees.info)
 
-## Build Setup
-
-``` bash
-# install dependencies
-$ npm run install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+How Many Bees was one of my first web applications and it was built using Nuxt. The idea is quite simple: provide unit conversions for units that nobody would ever really think of using. If you want to know how many bees 5 lbs is then this app is for you.
