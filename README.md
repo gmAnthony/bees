@@ -1,5 +1,20 @@
-# What the heck is Bees?
+# How Many Bees
 
-Deployed at [howmanybees.info](https://howmanybees.info)
+Convert ordinary units into bees, football fields, mayfly lifespans, and other delightfully weird measurements.
 
-How Many Bees was one of my first web applications and it was built using Nuxt. The idea is quite simple: provide unit conversions for units that nobody would ever really think of using. If you want to know how many bees 5 lbs is then this app is for you.
+## Develop
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+## Stack
+
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+
+Unit data and conversion live in `lib/units.ts`. There is no API or database — everything runs in the browser.
